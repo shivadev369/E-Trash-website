@@ -44,10 +44,13 @@ app.post('/api/register', async (req, res) => {
     });
 
     await newUser.save();
-    res.status(201).send('User registered successfully');
+    res.status(200).send('User registered successfully');
   } catch (error) {
-    console.error('Error registering user:', error.message); // Log error message
-    res.status(500).send('Error registering user');
+    if (error.code === 11000) { 
+      res.status(400).send({ code: 11000, message: 'Email already exists' });
+    } else {
+      res.status(500).send({ message: 'Registration failed' });
+    }
   }
 });
 

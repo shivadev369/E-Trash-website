@@ -23,6 +23,10 @@
   color: #333; /* Text color */
 }
 
+label {
+  text-align: left;
+}
+
 .content-container {
   display: flex;
   justify-content: space-between; /* Align items to the edges */
