@@ -1,0 +1,35 @@
+.about-us {
+  width: 100%; /* Ensures the section takes up the full width of the page */
+  min-height: 100vh; /* Sets the height to fill the entire viewport */
+  padding: 40px;
+  color: rgb(240, 232, 232);
+  font-family: Arial, sans-serif;
+  background-color: rgb(32, 30, 30); /* Add background color to the full section */
+  box-sizing: border-box; /* Ensures padding is included within the width */
+}
+
+.about-us-container {
+  max-width: 900px; /* Keeps the content centered within a fixed width */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-us-container h1 {
+  margin-bottom: 20px;
+  font-size: 3.5em;
+  text-align: center;
+}
+
+.about-us-container p {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.about-us-container h1, 
+.about-us-container h2, 
+.about-us-container h3, 
+.about-us-container h4, 
+.about-us-container h5, 
+.about-us-container h6 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

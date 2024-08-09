@@ -1,0 +1,89 @@
+.contact-container {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-details {
+  flex: 1;
+  margin-right: 20px;
+}
+
+li a
+{
+  text-decoration: none;
+  color: #fff;
+}
+.contact-details a {
+  color: rgb(249, 249, 252);
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.links div {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.links h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links ul li {
+  margin-bottom: 5px;
+}
+
+.links ul li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.links ul li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 20px;
+  border-top: 1px solid #fff;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-links a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}

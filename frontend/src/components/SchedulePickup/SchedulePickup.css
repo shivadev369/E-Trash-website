@@ -1,0 +1,100 @@
+.schedule-pickup {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content */
+  padding: 20px;
+  height: 100vh; /* Full viewport height */
+  background-color: #FBDFC8; /* Set background color */
+}
+.schedule-pickup .fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.schedule-pickup.fade-in-visible .fade-in {
+  opacity: 1;
+}
+.catchy-text {
+  text-align: center;
+  font-family: 'Brush Script MT', cursive; /* Cursive font */
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 20px; /* Space below the text */
+  color: #333; /* Text color */
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between; /* Align items to the edges */
+  align-items: center; /* Center items vertically */
+  width: 100%;
+}
+
+.image-container {
+  flex: 1; /* Takes up remaining space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-image {
+  max-width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.form-container {
+  flex: 1; /* Takes up remaining space */
+  display: flex;
+  justify-content: center; /* Center the form */
+  align-items: center;
+}
+
+.pickup-form {
+  max-width: 450px; /* Increased width by 50px */
+  width: 100%; /* Full width up to max-width */
+  background-color: #f9f9f9; /* Background color for the form */
+  padding: 30px; /* Increased padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pickup-form h2 {
+  margin-bottom: 20px;
+}
+
+.pickup-form label {
+  display: block;
+  margin-bottom: 15px; /* Increased margin */
+}
+
+.pickup-form input,
+.pickup-form select {
+  width: calc(100% - 20px); /* Full width minus padding */
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.pickup-form button {
+  background-color: rgb(248, 80, 80);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: calc(100% - 20px); /* Full width minus padding */
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.pickup-form button:hover {
+  background-color: rgb(200, 50, 50); /* Darker color on hover */
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px; /* Add space above the error message */
+  margin-left: 5px; /* Add space to the left of the error message */
+}

@@ -1,0 +1,106 @@
+/* Navbar.css */
+.navbar {
+  background-color: rgb(248, 80, 80);
+  padding: 10px;
+  display: flex; /* Align items in a row */
+  align-items: center; /* Vertically center items */
+  justify-content: flex-end; /* Align items to the right */
+}
+
+.navbar .logo {
+  margin-right: auto; /* Space between logo and other items */
+}
+
+.navbar-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Align items in a row */
+  align-items: center; /* Vertically center items */
+}
+
+
+.navbar-menu li {
+  margin-right: 20px; /* Space between menu items */
+}
+
+
+.navbar-menu .dropdown {
+  position: relative;
+}
+.navbar-menu li a:hover {
+  color: white; /* Change color on hover */
+  background-color: rgb(0, 0, 0); /* Optional: Add background color on hover */
+  border-radius: 4px;
+  border-width: 20px; /* Optional: Add border-radius for rounded corners */
+}
+.navbar-menu li a {
+  display: block; 
+  color: black; 
+  text-decoration: none;
+  padding: 10px;
+}
+
+.navbar-menu .dropdown a {
+  color: rgb(14, 13, 13);
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.navbar-menu .dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-radius: 10px;
+  background-color: #f7f2f2;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  min-width: 150px;
+}
+
+.dropdown-menu li {
+  
+}
+
+.dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.search-box {
+  display: flex; /* Align input and icon in a row */
+  align-items: center;
+  margin-right: 20px; /* Space between search box and other items */
+}
+
+.search-box input {
+  height: 30px; /* Adjust height as needed */
+  padding: 0 10px;
+  border: none;
+  border-radius: 4px; /* Optional: add border radius */
+  margin-right: 10px; /* Space between input and icon */
+}
+
+.search-box img {
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+}
+
+.signup button{
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px ;
+  background-color: #333;
+  border-radius: 20px;
+}

@@ -1,0 +1,24 @@
+/* App.css */
+
+/* Keyframes for the fade-in and slide-up animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Start position */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End position */
+  }
+}
+
+.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.5s ease-out forwards; /* Ensure it remains after animation */
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
