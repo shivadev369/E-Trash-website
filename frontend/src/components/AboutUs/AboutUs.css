@@ -1,15 +1,15 @@
 .about-us {
-  width: 100%; /* Ensures the section takes up the full width of the page */
-  min-height: 100vh; /* Sets the height to fill the entire viewport */
+  width: 100%;
+  min-height: 100vh;
   padding: 40px;
   color: rgb(240, 232, 232);
   font-family: Arial, sans-serif;
-  background-color: rgb(32, 30, 30); /* Add background color to the full section */
-  box-sizing: border-box; /* Ensures padding is included within the width */
+  background-color: rgb(32, 30, 30);
+  box-sizing: border-box;
 }
 
 .about-us-container {
-  max-width: 900px; /* Keeps the content centered within a fixed width */
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
@@ -32,4 +32,33 @@
 .about-us-container h5, 
 .about-us-container h6 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Styles for the values section */
+.values-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.value-item {
+  text-align: center;
+  margin: 0 80px;
+}
+
+.value-item img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.value-item p {
+  font-size: 1.2em;
+  color: rgb(240, 232, 232);
+}
+
+h3{
+  font-size: large;
+  padding-left: 20px;
+  text-align: center;
 }

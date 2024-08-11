@@ -102,3 +102,25 @@ label {
   margin-top: 5px; /* Add space above the error message */
   margin-left: 5px; /* Add space to the left of the error message */
 }
+.location-label {
+  display: block;
+  position: relative;
+}
+
+.location-input-container {
+  position: relative;
+}
+
+.location-input-container input {
+  padding-right: 30px; /* Make room for the icon */
+}
+
+.location-icon {
+  position: absolute;
+  right: 35px; /* Adjust based on the icon size */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px; /* Adjust icon size as needed */
+}
+

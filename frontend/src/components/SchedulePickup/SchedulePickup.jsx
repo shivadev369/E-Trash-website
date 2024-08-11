@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Import axios
-import './SchedulePickup.css'; // Import the CSS file for styling
-import pickimg from '../SchedulePickup/pickup.jpg'
+import React, { useState } from 'react';
+import axios from 'axios';
+import './SchedulePickup.css';
+import pickimg from '../SchedulePickup/pickup.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
 const SchedulePickup = () => {
   const [formData, setFormData] = useState({
@@ -18,17 +20,6 @@ const SchedulePickup = () => {
     contact: ''
   });
 
-  const [currentLocation, setCurrentLocation] = useState('');
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const { latitude, longitude } = position.coords;
-      const location = `Latitude: ${latitude}, Longitude: ${longitude}`;
-      setCurrentLocation(location);
-      setFormData((prevData) => ({ ...prevData, location }));
-    });
-  }, []);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -36,6 +27,14 @@ const SchedulePickup = () => {
       [name]: value
     });
     validateField(name, value);
+  };
+
+  const handleLocationClick = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      const location = `Latitude: ${latitude}, Longitude: ${longitude}`;
+      setFormData((prevData) => ({ ...prevData, location }));
+    });
   };
 
   const validateField = (name, value) => {
@@ -81,16 +80,17 @@ const SchedulePickup = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        await axios.post('http://localhost:3000/api/pickup-request', formData);
-        alert('Form submitted successfully');
-        // Optionally, reset the form or redirect
-        setFormData({
-          name: '',
-          email: '',
-          location: '',
-          contact: '',
-          eWasteType: ''
-        });
+        const response = await axios.post('http://localhost:3000/api/pickup-request', formData);
+        if (response.status === 201) {
+          alert('Form submitted successfully');
+          setFormData({
+            name: '',
+            email: '',
+            location: '',
+            contact: '',
+            eWasteType: ''
+          });
+        }
       } catch (error) {
         console.error('Error submitting form:', error);
         alert('An error occurred while submitting the form.');
@@ -130,16 +130,23 @@ const SchedulePickup = () => {
               />
               {errors.email && <span className="error">{errors.email}</span>}
             </label>
-            <label>
+            <label className="location-label">
               Location:
-              <input
-                type="text"
-                name="location"
-                value={formData.location || currentLocation}
-                onChange={handleChange}
-                required
-                readOnly
-              />
+              <div className="location-input-container">
+                <input
+                  type="text"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                  placeholder="Click the icon to use current location"
+                  readOnly
+                />
+                <FontAwesomeIcon
+                  icon={faLocationArrow}
+                  className="location-icon"
+                  onClick={handleLocationClick}
+                />
+              </div>
             </label>
             <label>
               Contact Number:

@@ -1,21 +1,20 @@
 import React from 'react';
 import './Contacts.css';
+import logo from '../Navbar/logo.png';
 
 const Contacts = () => {
   return (
     <div className="contact-container">
       <div className="contact-header">
-        <img src="path_to_logo" alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" className="logo" />
         <h2>Join us in making recycling a way of life.</h2>
       </div>
       <div className="contact-content">
         <div className="contact-details">
           <p>For other queries:</p>
-          <a href="mailto:etrash@gmail.com">etrash@gmail.com</a>
+          <a href="mailto:etrashweb@gmail.com">etrashweb@gmail.com</a>
           <p>0124-4551067 (landline)</p>
-        
           <p>Find us at:</p>
-
         </div>
         <div className="links">
           <div className="take-action">
@@ -37,11 +36,9 @@ const Contacts = () => {
           <div className="connect">
             <h3>Connect</h3>
             <ul>
-              <li><a href="#">Instagram</a></li>
-              
-              <li><a href="#">Facebook</a></li>
-
-              <li><a href="#">Email</a></li>
+              <li><a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i> Instagram</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61564058343974" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i> Facebook</a></li>
+              <li><a href="mailto:etrashweb@gmail.com"><i className="fas fa-envelope"></i> Email</a></li>
             </ul>
           </div>
         </div>

@@ -8,7 +8,6 @@ import Feed from './components/Feed/Feed';
 import AboutUs from './components/AboutUs/AboutUs';
 import Auth from './components/Auth/Auth';
 import { InView } from 'react-intersection-observer';
-import { HashLink as Link } from 'react-router-hash-link';
 import './App.css';
 
 const ScrollToTopOnMount = () => {
@@ -27,6 +26,7 @@ const App = () => {
     news: false,
     contact: false,
   });
+  const [showAuth, setShowAuth] = useState(false);
 
   const handleInView = (inView, section) => {
     if (inView) {
@@ -36,9 +36,12 @@ const App = () => {
     }
   };
 
+  const toggleAuth = () => setShowAuth(prev => !prev);
+
   return (
     <Router>
-      <Navbar />
+      <Navbar toggleAuth={toggleAuth} />
+      {showAuth && <Auth onClose={toggleAuth} />}
       <Routes>
         <Route path="/" element={
           <>
@@ -102,7 +105,7 @@ const App = () => {
             </div>
           </>
         } />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth" element={<Auth onClose={toggleAuth} />} />
       </Routes>
     </Router>
   );

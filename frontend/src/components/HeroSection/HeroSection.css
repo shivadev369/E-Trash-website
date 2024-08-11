@@ -4,6 +4,10 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(33, 33, 33);
+    background-image: url(../HeroSection/heroimg.png);
+    background-size: cover; /* Ensures the image covers the entire hero section */
+    background-position: center; /* Centers the image within the hero section */
+    background-repeat: no-repeat;
     height: 100vh;
     color: white;
     overflow-y: auto;
@@ -27,10 +31,11 @@
   }
   
   .hero p {
-    font-size: 3em;
+    font-size: 2.5em;
     color: #ece2e2;
     background-color:hwb(346 33% 8% / 0.397);
-    padding: 20px;
+
+    padding: 0px 20px;
     border-width: 2px;
     border-radius: 20px;
   }

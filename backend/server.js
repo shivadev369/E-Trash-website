@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt'); // Import bcrypt for password hashing
+const nodemailer = require('nodemailer'); // Import Nodemailer
 const PickupRequest = require('./models/pickupRequest'); // Import your Mongoose model
 const User = require('./models/user'); // Import the User model
 
@@ -17,15 +18,45 @@ mongoose.connect('mongodb+srv://shiva:toyotasupra@cluster0.gi5h08r.mongodb.net/?
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
+// Configure Nodemailer
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'etrashweb@gmail.com', // Your email address
+    pass: 'madx iovz fujy oolc' // Your email password or app-specific password
+  }
+});
+
 // API Endpoint to handle form submission
 app.post('/api/pickup-request', async (req, res) => {
   try {
     const newRequest = new PickupRequest(req.body);
     await newRequest.save();
-    res.status(201).send('Pickup request saved successfully');
+
+    // Send confirmation email to the user
+    const mailOptions = {
+      from: 'etrashweb@gmail.com',
+      to: req.body.email,
+      subject: 'E-Waste Pickup Confirmation',
+      text: `Dear ${req.body.name},
+
+Thank you for scheduling an e-waste pickup with us. Here are the details:
+Location: ${req.body.location}
+Contact Number: ${req.body.contact}
+Type of E-Waste: ${req.body.eWasteType}
+
+We will get back to you soon to confirm the pickup schedule.
+
+Best regards,
+E-Waste Management Team`
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.status(201).send('Pickup request saved successfully and email sent.');
   } catch (error) {
-    console.error('Error saving pickup request:', error);
-    res.status(500).send('Error saving pickup request');
+    console.error('Error saving pickup request or sending email:', error);
+    res.status(500).send('Error saving pickup request or sending email.');
   }
 });
 

@@ -1,8 +1,12 @@
+
+
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
+  
 }
 
 form {
@@ -70,4 +74,41 @@ button {
   text-decoration: underline;
 }
 
-/*added code*/
+/* Added CSS for the Close Button */
+.auth-container {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  background: 
+  linear-gradient(
+    rgba(15, 14, 14, 0.5), 
+    rgba(46, 45, 45, 0.5)
+  ), 
+  url(../Auth/background.jpg);
+  background-size: cover; /* Ensures the image covers the entire hero section */
+  background-position: center; /* Centers the image within the hero section */
+  background-repeat: no-repeat;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 80px;
+  background: rgb(245, 238, 238); /* Light background color */
+  border: none;
+  padding: 5px 15px; /* Adjust padding for desired spacing around text */
+  font-size: 25px; /* Adjust font size if needed */
+  cursor: pointer;
+  color: black;
+  border-radius: 20px; /* Optional: add border radius for rounded corners */
+  width: auto; /* Ensure width is based on content */
+  max-width: fit-content; /* Ensures the button width fits the content */
+}
+
+.close-button:hover {
+  color: red;
+  
+}
