@@ -1,45 +1,57 @@
-/* Navbar.css */
 .navbar {
+  position: relative; /* Ensure positioning context for the logo */
   background-color: rgb(248, 80, 80);
   padding: 10px;
   width: 100%;
-  display: flex; /* Align items in a row */
-  align-items: center; /* Vertically center items */
-  justify-content: flex-end; /* Align items to the right */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  height: 80px; /* Adjust as needed */
 }
 
 .navbar .logo {
-  margin-right: auto;
-  width: 100px;
-  height: 0px; /* Space between logo and other items */
+  position: absolute; /* Absolute positioning for the logo */
+  top: 50%; /* Center vertically relative to the navbar */
+  left: 10px; /* Adjust as needed for spacing from the left edge */
+  transform: translateY(-50%); /* Center the logo vertically */
+  height: 250px; /* Set the desired height */
+  width: auto; /* Maintain aspect ratio */
+  z-index: 1; /* Ensure the logo is above other navbar content */
+}
+
+/* Ensure the logo is resized properly */
+.navbar .logo img {
+  height: 100%; /* Make sure the image fills the container */
+  width: auto; /* Maintain aspect ratio */
 }
 
 .navbar-menu {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  display: flex; /* Align items in a row */
-  align-items: center; /* Vertically center items */
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Push menu items to the right */
 }
-
 
 .navbar-menu li {
-  margin-right: 20px; /* Space between menu items */
+  margin-right: 20px;
 }
-
 
 .navbar-menu .dropdown {
   position: relative;
 }
+
 .navbar-menu li a:hover {
-  color: white; /* Change color on hover */
-  background-color: rgb(0, 0, 0); /* Optional: Add background color on hover */
+  color: white;
+  background-color: rgb(0, 0, 0);
   border-radius: 4px;
-  border-width: 20px; /* Optional: Add border-radius for rounded corners */
 }
+
 .navbar-menu li a {
-  display: block; 
-  color: black; 
+  display: block;
+  color: black;
   text-decoration: none;
   padding: 10px;
 }
@@ -69,7 +81,6 @@
 }
 
 .dropdown-menu li {
-  
 }
 
 .dropdown-menu li a {
@@ -82,28 +93,31 @@
 }
 
 .search-box {
-  display: flex; /* Align input and icon in a row */
+  display: flex;
   align-items: center;
-  margin-right: 20px; /* Space between search box and other items */
+  margin-right: 20px;
 }
 
 .search-box input {
-  height: 30px; /* Adjust height as needed */
+  height: 30px;
   padding: 0 10px;
   border: none;
-  border-radius: 4px; /* Optional: add border radius */
-  margin-right: 10px; /* Space between input and icon */
+  border-radius: 4px;
+  margin-right: 10px;
 }
 
 .search-box img {
-  width: 20px; /* Adjust size as needed */
-  height: 20px; /* Adjust size as needed */
+  width: 20px;
+  height: 20px;
 }
 
-.signup button{
+.signup button {
   color: white;
   font-size: 14px;
-  padding: 10px 20px ;
+  margin: 0;
+  text-align: right;
+  padding: 10px 20px;
   background-color: #333;
   border-radius: 20px;
+  overflow: hidden;
 }

@@ -1,4 +1,12 @@
 /* App.css */
+/* global.css */
+
+/* global.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* Keyframes for the fade-in and slide-up animation */
 @keyframes fadeInUp {

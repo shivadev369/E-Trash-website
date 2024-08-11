@@ -5,6 +5,7 @@
   padding: 20px;
   height: 100vh; /* Full viewport height */
   background-color: #FBDFC8; /* Set background color */
+  padding-top: 80px;
 }
 .schedule-pickup .fade-in {
   opacity: 0;

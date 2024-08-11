@@ -1,12 +1,9 @@
-
-
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100%;
-  
 }
 
 form {
@@ -29,19 +26,21 @@ form h1 {
 }
 
 .input-box input {
-  width: 80%;
+  width: 100%; /* Ensure the input takes full width of the container */
   padding: 10px;
-  padding-left: 40px;
+  padding-left: 40px; /* Make sure there's enough padding for the icon */
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .input-box .icon {
   position: absolute;
-  left: 10px;
+  left: 10px; /* Adjust if needed */
   top: 50%;
   transform: translateY(-50%);
   color: #999;
+  font-size: 16px; /* Adjust size as needed */
 }
 
 .remember-forgot {
@@ -74,7 +73,6 @@ button {
   text-decoration: underline;
 }
 
-/* Added CSS for the Close Button */
 .auth-container {
   position: relative;
   width: 100%;
@@ -110,5 +108,4 @@ button {
 
 .close-button:hover {
   color: red;
-  
 }

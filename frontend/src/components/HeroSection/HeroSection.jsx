@@ -7,6 +7,8 @@ const HeroSection = () => {
       <div className="hero-overlay"></div>
       <div className="hero-content">
       <h1>E-Trash - Turn E-Waste into Eco-Wins </h1>
+      <br />
+      <br />
       <p>"Together, We Can Make a Difference"</p>
       </div>
     </header>

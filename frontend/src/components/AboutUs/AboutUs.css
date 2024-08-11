@@ -6,6 +6,7 @@
   font-family: Arial, sans-serif;
   background-color: rgb(32, 30, 30);
   box-sizing: border-box;
+ 
 }
 
 .about-us-container {
@@ -21,7 +22,7 @@
 }
 
 .about-us-container p {
-  margin-bottom: 15px;
+  margin-bottom: 45px;
   font-size: 1.2em;
 }
 

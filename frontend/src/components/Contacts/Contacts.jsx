@@ -14,7 +14,6 @@ const Contacts = () => {
           <p>For other queries:</p>
           <a href="mailto:etrashweb@gmail.com">etrashweb@gmail.com</a>
           <p>0124-4551067 (landline)</p>
-          <p>Find us at:</p>
         </div>
         <div className="links">
           <div className="take-action">
