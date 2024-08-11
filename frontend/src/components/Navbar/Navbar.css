@@ -1,29 +1,22 @@
 .navbar {
-  position: relative; /* Ensure positioning context for the logo */
+  position: relative;
   background-color: rgb(248, 80, 80);
   padding: 10px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  overflow: hidden;
-  height: 80px; /* Adjust as needed */
+  height: 80px;
 }
 
 .navbar .logo {
-  position: absolute; /* Absolute positioning for the logo */
-  top: 50%; /* Center vertically relative to the navbar */
-  left: 10px; /* Adjust as needed for spacing from the left edge */
-  transform: translateY(-50%); /* Center the logo vertically */
-  height: 250px; /* Set the desired height */
-  width: auto; /* Maintain aspect ratio */
-  z-index: 1; /* Ensure the logo is above other navbar content */
-}
-
-/* Ensure the logo is resized properly */
-.navbar .logo img {
-  height: 100%; /* Make sure the image fills the container */
-  width: auto; /* Maintain aspect ratio */
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  height: 250px;
+  width: auto;
+  z-index: 1;
 }
 
 .navbar-menu {
@@ -32,21 +25,11 @@
   margin: 0;
   display: flex;
   align-items: center;
-  margin-left: auto; /* Push menu items to the right */
+  margin-left: auto;
 }
 
 .navbar-menu li {
   margin-right: 20px;
-}
-
-.navbar-menu .dropdown {
-  position: relative;
-}
-
-.navbar-menu li a:hover {
-  color: white;
-  background-color: rgb(0, 0, 0);
-  border-radius: 4px;
 }
 
 .navbar-menu li a {
@@ -56,68 +39,54 @@
   padding: 10px;
 }
 
-.navbar-menu .dropdown a {
-  color: rgb(14, 13, 13);
-  text-decoration: none;
-  display: block;
-  padding: 10px;
+.navbar-menu li a:hover {
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border-radius: 4px;
 }
 
-.navbar-menu .dropdown:hover > .dropdown-menu {
-  display: block;
+.auth-section {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon {
+  font-size: 30px;
+  cursor: pointer;
 }
 
 .dropdown-menu {
   display: none;
   position: absolute;
+  right: 0;
   top: 100%;
-  left: 0;
-  border-radius: 10px;
-  background-color: #f7f2f2;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  min-width: 150px;
-}
-
-.dropdown-menu li {
-}
-
-.dropdown-menu li a {
-  color: white;
-  text-decoration: none;
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-}
-
-.search-box input {
-  height: 30px;
-  padding: 0 10px;
-  border: none;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
   border-radius: 4px;
-  margin-right: 10px;
+  overflow: hidden;
 }
 
-.search-box img {
-  width: 20px;
-  height: 20px;
+/* This will ensure the dropdown-menu is visible when dropdownVisible is true */
+.dropdown .dropdown-menu {
+  display: block;
 }
 
-.signup button {
-  color: white;
-  font-size: 14px;
-  margin: 0;
-  text-align: right;
+.dropdown-menu button {
   padding: 10px 20px;
   background-color: #333;
-  border-radius: 20px;
-  overflow: hidden;
+  color: white;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background-color: #555;
 }

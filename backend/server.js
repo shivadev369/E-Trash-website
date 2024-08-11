@@ -2,19 +2,24 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt'); // Import bcrypt for password hashing
+const bcrypt = require('bcryptjs'); // Ensure bcrypt is correctly imported
+const jwt = require('jsonwebtoken'); // Import JWT
 const nodemailer = require('nodemailer'); // Import Nodemailer
 const PickupRequest = require('./models/pickupRequest'); // Import your Mongoose model
 const User = require('./models/user'); // Import the User model
 
 const app = express();
+const JWT_SECRET = 'YOUR_JWT_SECRET_KEY'; // Replace with your own secret key
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json()); // For parsing application/json
 
 // Connect to MongoDB Atlas
-mongoose.connect('mongodb+srv://shiva:toyotasupra@cluster0.gi5h08r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb+srv://shiva:toyotasupra@cluster0.gi5h08r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
@@ -104,11 +109,20 @@ app.post('/api/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    res.status(200).json({ message: 'Login successful' });
+    // Generate JWT token
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+
+    res.status(200).json({ token });
   } catch (error) {
     console.error('Error during login:', error.message);
     res.status(500).json({ message: 'Login failed' });
   }
+});
+
+// API Endpoint to handle user logout
+app.post('/api/logout', (req, res) => {
+  // Simply inform the client to delete the token on logout
+  res.status(200).json({ message: 'Logout successful' });
 });
 
 // Start the server

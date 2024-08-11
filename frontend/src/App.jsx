@@ -8,6 +8,7 @@ import Feed from './components/Feed/Feed';
 import AboutUs from './components/AboutUs/AboutUs';
 import Auth from './components/Auth/Auth';
 import { InView } from 'react-intersection-observer';
+import { AuthProvider } from '../src/components/Auth/AuthContext';
 import './App.css';
 
 const ScrollToTopOnMount = () => {
@@ -39,6 +40,7 @@ const App = () => {
   const toggleAuth = () => setShowAuth(prev => !prev);
 
   return (
+    <AuthProvider>
     <Router>
       <Navbar toggleAuth={toggleAuth} />
       {showAuth && <Auth onClose={toggleAuth} />}
@@ -105,9 +107,12 @@ const App = () => {
             </div>
           </>
         } />
-        <Route path="/auth" element={<Auth onClose={toggleAuth} />} />
+        
+        <Route path="/auth" element={<Auth onClose={toggleAuth} />}/>
       </Routes>
     </Router>
+    </AuthProvider>
+    
   );
 };
 

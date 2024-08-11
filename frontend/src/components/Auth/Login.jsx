@@ -3,20 +3,20 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FaLock, FaEnvelope } from "react-icons/fa";
 import './Auth.css';
+import { useAuth } from '../Auth/AuthContext'; // Import the context
 
-const Login = ({ onLogin, setIsLogin }) => {
+const Login = ({ setIsLogin }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth(); // Use login from context
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    // Clear error message when user changes input
     if (loginError) {
       setLoginError('');
     }
@@ -26,10 +26,10 @@ const Login = ({ onLogin, setIsLogin }) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3000/api/login', formData);
-
       if (response.status === 200) {
         alert('Login successful');
-        onLogin(); // Call onLogin to update authentication status
+        login(); // Update the authentication status
+        localStorage.setItem('token', response.data.token); // Save the JWT token
         navigate('/'); // Redirect to home page
       } else {
         setLoginError('Login failed. Invalid email or password');

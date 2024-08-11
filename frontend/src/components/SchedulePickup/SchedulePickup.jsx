@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useAuth } from '../Auth/AuthContext'; // Import useAuth
 import './SchedulePickup.css';
 import pickimg from '../SchedulePickup/pickup.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,6 +21,9 @@ const SchedulePickup = () => {
     email: '',
     contact: ''
   });
+
+  const { isAuthenticated } = useAuth(); // Access isAuthenticated from AuthContext
+  const navigate = useNavigate(); // Initialize navigate
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,6 +83,12 @@ const SchedulePickup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!isAuthenticated) {
+      navigate('/auth'); // Redirect to login page if not authenticated
+      return;
+    }
+
     if (validateForm()) {
       try {
         const response = await axios.post('http://localhost:3000/api/pickup-request', formData);
